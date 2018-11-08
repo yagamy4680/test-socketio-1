@@ -1,0 +1,19 @@
+{
+  "name": "test-socketio-1",
+  "version": "0.0.1",
+  "description": "Test socket.io",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yagamy4680/test-socketio-1.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "colors": "*",
+    "prettyjson": "*",
+    "express": "^4.16.2",
+    "body-parser": "~1.13.1",
+    "socket.io": "^2.1.0",
+    "socket.io-client": "^2.1.0"
+  }
+}
