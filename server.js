@@ -21,9 +21,13 @@ web.use(bodyParser.urlencoded({ extended: true }));
 
 ioTac.on('connection', (s) => {
     console.log(`socket.io[tac] incoming connection: ${s.id}`);
-    s.on('disconnect', () => {
-        console.log(`socket.io[tac] disconnection: ${s.id}`);
-    });
+    s
+        .on('testping', (a, b, c) => {
+            s.emit('testpong', c, b, a);
+        })
+        .on('disconnect', () => {
+            console.log(`socket.io[tac] disconnection: ${s.id}`);
+        });
 });
 
 server.on('listening', () => {

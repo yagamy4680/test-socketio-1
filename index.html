@@ -6,14 +6,21 @@
 
 <body>
     <script>
-        // var url = 'http://localhost:7000/tac';
-        var url = 'https://nuc54250a.t2t.io/tac';
+        var url = 'http://localhost:7000/tac';
+        // var url = 'https://nuc54250a.t2t.io/tac';
+        // var url = 'https://test2.t2t.io/tac';
 
         console.log(`trying to connect to ${url}`);
 
         var c = io(url)
             .on('connect', () => {
                 console.log(`connected to ${url}`);
+                setInterval(() => {
+                    c.emit('testping', 1, 2, 3);
+                }, 5000);
+            })
+            .on('testpong', (x, y, z) => {
+                console.log(`testpong: ${new Date()} => ${x}, ${y}, ${z}`);
             })
             .on('disconnect', () => {
                 console.log(`disconnected from ${url}`);
